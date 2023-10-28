@@ -28,7 +28,7 @@ test.group('Users Show', () => {
     response.assertBodyContains({
       message: String,
       data: {
-        id: Number,
+        id: 2,
         name: String,
         description: String,
         date_of_birth: String,
