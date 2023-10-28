@@ -1,6 +1,14 @@
 import { test } from '@japa/runner'
+import Database from '@ioc:Adonis/Lucid/Database'
 
-test.group('Users list', () => {
+test.group('Users list', (group) => {
+  /**
+   * @todo handle for all test units
+   */
+  group.each.setup(async () => {
+    await Database.beginGlobalTransaction('sqlite')
+    return () => Database.rollbackGlobalTransaction('sqlite')
+  })
   test('gets a paginated list of users', async ({ client }) => {
     const response = await client.get('api/v1/users')
 
