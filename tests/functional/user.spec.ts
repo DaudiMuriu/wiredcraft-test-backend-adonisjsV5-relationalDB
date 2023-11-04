@@ -19,9 +19,7 @@ test.group('Users list', (group) => {
 
     response.assertStatus(200)
   })
-})
 
-test.group('Users Show', () => {
   test('gets a user given an ID', async ({ client }) => {
     const response = await client.get('api/v1/users/2')
 
